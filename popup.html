@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { 
+        width: 340px; 
+        padding: 16px; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        background-color: #0A0A0B;
+        color: #E0E0E0;
+        margin: 0;
+        border: 2px solid #1F1F23;
+    }
+    h2 { margin-top: 0; color: #FF3E3E; text-transform: uppercase; font-size: 16px; display: flex; align-items: center; gap: 8px; font-weight: 900; letter-spacing: -0.5px;}
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.5px;}
+    input[type="text"], select { 
+        width: 100%; 
+        padding: 8px; 
+        box-sizing: border-box; 
+        background: #111114;
+        border: 1px solid #333;
+        color: white;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 12px;
+    }
+    input:focus, select:focus { outline: none; border-color: #FF3E3E; }
+    .checkbox-container { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #E0E0E0; font-weight: normal; cursor: pointer; text-transform: none; letter-spacing: normal;}
+    .checkbox-container input { cursor: pointer; accent-color: #FF3E3E; }
+    .actions { display: flex; gap: 8px; margin-top: 20px; }
+    button { 
+        flex: 1;
+        padding: 10px 12px; 
+        cursor: pointer; 
+        font-weight: bold;
+        border-radius: 4px;
+        border: none;
+        transition: all 0.2s;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+    .btn-primary { background: #FF3E3E; color: black; }
+    .btn-primary:hover { background: white; }
+    .btn-secondary { background: #111114; color: white; border: 1px solid #333; }
+    .btn-secondary:hover { background: #222; }
+    .status { margin-top: 12px; font-size: 10px; color: #00FF41; text-align: center; height: 16px; font-family: monospace; text-transform: uppercase;}
+    .current-site-badge { background: #111114; padding: 6px 8px; border-radius: 4px; font-family: monospace; font-size: 11px; color: #E0E0E0; word-break: break-all; border: 1px solid #222;}
+  </style>
+</head>
+<body>
+  <h2>⚠️ BreakMySite <span style="font-size: 10px; color: #666; font-weight: bold; letter-spacing: 2px;">V2.4</span></h2>
+  <div class="form-group">
+    <label>TARGET DOMAIN:</label>
+    <div id="current-site" class="current-site-badge">Loading...</div>
+  </div>
+  
+  <div class="form-group">
+    <label for="level">Distortion Level:</label>
+    <select id="level">
+        <option value="0">0 - STANDBY</option>
+        <option value="1">1 - MILD (Fonts, slight tilt)</option>
+        <option value="2">2 - BROKEN (Colors, inversion)</option>
+        <option value="3">3 - ENTROPY (Chaos, movement)</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="disabled">Element Neutralization (CSS):</label>
+    <input type="text" id="disabled" placeholder="e.g.: .ad, #header, nav">
+  </div>
+  
+  <div class="form-group" style="padding-top: 4px;">
+      <label class="checkbox-container">
+          <input type="checkbox" id="breakTranslators"> 
+          Sabotage Online Translators
+      </label>
+  </div>
+  
+  <div class="actions">
+      <button id="saveBtn" class="btn-primary">Deploy Chaos</button>
+      <button id="clearBtn" class="btn-secondary">Reset Site</button>
+  </div>
+  <div id="status" class="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
